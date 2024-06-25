@@ -1,0 +1,26 @@
+[
+    {
+        "id": 3829066,
+        "nome": "aline",
+        "setor": "vendas",
+        "salario": 1000
+    },
+    {
+        "id": 3829067,
+        "nome": "sandra",
+        "setor": "vendas",
+        "salario": 1000
+    },
+    {
+        "id": 3829068,
+        "nome": "artur",
+        "setor": "gerencia",
+        "salario": 1000
+    },
+    {
+        "id": 3829069,
+        "nome": "maria",
+        "setor": "serviços",
+        "salario": 1000
+    }
+]
