@@ -1,6 +1,6 @@
 import json
 from typing import List, Dict, Any
-from decorador import entrada
+from decorador import decorador_input
 
 # EXIGÊNCIA DO CÓDIGO N.º 2 - implementar uma lista com o nome de lista_funcionarios
 # e a variável id_global com valor inicial igual ao número de seu RU.
@@ -29,8 +29,8 @@ menu_principal = """Escolha a opção desejada:
 >> """
 
 
-@entrada
-def entrada_numerica(descricao: str, minn: int, maxx: int, decimal: bool = False) -> int | float:
+@decorador_input
+def input_numerico(descricao: str, minn: int, maxx: int, decimal: bool = False) -> int | float:
     try:
         _entrada: float = float(descricao)
         if _entrada < minn or _entrada > maxx:
@@ -44,8 +44,8 @@ def entrada_numerica(descricao: str, minn: int, maxx: int, decimal: bool = False
         return _entrada if decimal else int(_entrada)
 
 
-@entrada
-def entrada_padrao(descricao: str) -> str:
+@decorador_input
+def input_padrao(descricao: str) -> str:
     try:
         _entrada: str = str(descricao)
         if not _entrada.isprintable():
@@ -56,7 +56,7 @@ def entrada_padrao(descricao: str) -> str:
         return _entrada
 
 
-def gen_id():
+def gerar_id():
     global id_global
     if len(lista_funcionarios) == 0:
         return id_global + 1
@@ -93,9 +93,9 @@ def cadastrar_funcionario(_id: int) -> dict:
     print('-' * 60, f'{' MENU CADASTRAR FUNCIONÁRIO':-^60}', f'Id do Funcionário: {_id}', sep='\n')
     funcionario: Dict = dict(
         id=_id,
-        nome=entrada_padrao('Por favor, entre com o nome do funcionário: '),
-        setor=entrada_padrao('Por favor, entre com o setor do funcionário: '),
-        salario=entrada_numerica('Por favor, entre com o salário do funcionário: ', minn=0, maxx=100000, decimal=True)
+        nome=input_padrao('Por favor, entre com o nome do funcionário: '),
+        setor=input_padrao('Por favor, entre com o setor do funcionário: '),
+        salario=input_numerico('Por favor, entre com o salário do funcionário: ', minn=0, maxx=100000, decimal=True)
     )
     # Ciente que terei nota descontada por não utilizar o método .copy(), mas, não ficou claro
     # sobre qual estrutura ele deveria ser chamado, se sobre o objeto list ou dict. De toda a
@@ -111,13 +111,13 @@ def consultar_funcionario() -> Any:
     """
     print('-' * 60, f'{' MENU CONSULTAR FUNCIONÁRIOS':-^60}', sep='\n')
     busca = list()
-    escolha = entrada_numerica(menu_consultar_funcionario, minn=1, maxx=4)
+    escolha = input_numerico(menu_consultar_funcionario, minn=1, maxx=4)
     if escolha == 1:
         busca = realizar_busca()
     elif escolha == 2:
-        busca = realizar_busca(_id=entrada_numerica('Digite o id do funcionário: ', minn=id_global, maxx=4000000))
+        busca = realizar_busca(_id=input_numerico('Digite o id do funcionário: ', minn=id_global, maxx=4000000))
     elif escolha == 3:
-        busca = realizar_busca(_setor=entrada_padrao('Digite o setor do(s) funcionário(s): '))
+        busca = realizar_busca(_setor=input_padrao('Digite o setor do(s) funcionário(s): '))
     elif escolha == 4:
         return False
     exibir_dados_funcionarios(busca)
@@ -131,12 +131,12 @@ def remover_funcionario() -> None:
     """
     print('-' * 60, f'{' MENU REMOVER FUNCIONÁRIO':-^60}', sep='\n')
     funcionario = realizar_busca(
-        _id=entrada_numerica('Digite o id do funcionário a ser removido: ', minn=id_global, maxx=4000000)
+        _id=input_numerico('Digite o id do funcionário a ser removido: ', minn=id_global, maxx=4000000)
     )
     if len(funcionario) != 0:
         print('Funcionário encontrado:')
         exibir_dados_funcionarios(funcionario)
-        escolha = entrada_numerica(menu_remover_funcionario, minn=0, maxx=2)
+        escolha = input_numerico(menu_remover_funcionario, minn=0, maxx=2)
         if escolha == 1:
             for i in range(0, len(lista_funcionarios)):
                 if lista_funcionarios[i].get('id') == funcionario[0].get('id'):
@@ -158,9 +158,9 @@ if __name__ == '__main__':
         print('-' * 60, f'{' MENU PRINCIPAL ':-^60}', sep='\n')
         # EXIGÊNCIA DO CÓDIGO N.º 6 - Deve-se implementar uma estrutura de menu no código principal (main),
         # ou seja, não pode estar dentro de função.
-        escolha = entrada_numerica(menu_principal, minn=1, maxx=4)
+        escolha = input_numerico(menu_principal, minn=1, maxx=4)
         if escolha == 1:
-            cadastrar_funcionario(gen_id())
+            cadastrar_funcionario(gerar_id())
         elif escolha == 2:
             consultar_funcionario()
         elif escolha == 3:

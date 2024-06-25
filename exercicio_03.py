@@ -1,9 +1,9 @@
-from decorador import entrada
+from decorador import decorador_input
 from typing import Literal, List
 
 
-@entrada
-def entrada_fabrica(descricao: str, tipo: Literal['int', 'str'], **kwargs) -> str | int:
+@decorador_input
+def input_fabrica(descricao: str, tipo: Literal['int', 'str'], **kwargs) -> str | int:
     """
     EXIGÊNCIA DO CÓDIGO N.º 6 e 7 - implementar try/except e comentários relevantes.
     Função para entrada de dados.
@@ -41,14 +41,14 @@ def escolha_modelo() -> int | float:
                '{} - Manga Longa Simples;\n'
                '{} - Manga Curta Com Estampa;\n'
                '{} - Manga Longa Com Estampa;\n>> ')
-    escolha = entrada_fabrica(menu.format(*opcoes), tipo='str', msg_erro=msg_erro, opcao=opcoes)
+    escolha = input_fabrica(menu.format(*opcoes), tipo='str', msg_erro=msg_erro, opcao=opcoes)
     return modelos.get(escolha.upper())
 
 
 def num_camisetas() -> dict:
     # EXIGÊNCIA DO CÓDIGO N.º 3 - implementar a função num_camisetas().
     msg_erro = 'Não aceitamos tantas camisetas de uma vez.'
-    paginas = entrada_fabrica(
+    paginas = input_fabrica(
         'Entre com o número de camisetas: ',
         tipo='int',
         minmax=[1, 20000 - 1],
@@ -72,7 +72,7 @@ def frete() -> int:
                f'1 - Frete por transportadora - R$ {valores.get(1):.2f}\n'
                f'2 - Frete por Sedex - R$ {valores.get(2):.2f}\n'
                f'0 - Retirar pedido na fábrica - R$ 0,00\n>> ')
-    extra = entrada_fabrica(menu, tipo='int', minmax=[0, 2], msg_erro=msg_erro)
+    extra = input_fabrica(menu, tipo='int', minmax=[0, 2], msg_erro=msg_erro)
     return valores.get(extra) if extra else extra
 
 

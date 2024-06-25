@@ -1,12 +1,12 @@
-from decorador import entrada
+from decorador import decorador_input
 
 
 # EXIGÊNCIA DO CÓDIGO N.º 6 - Comentários relevantes.
 # Obs.: para nomeação de variáveis foi observada as orientações da PEP 8, que recomenda a utilização do
 # símbolo '_' (underscore) para a separação de palavras em código Python.
 
-@entrada
-def entrada_numerica(descricao: str, retorna_inteiro: bool = False) -> float | int:
+@decorador_input
+def input_loja(descricao: str, retorna_inteiro: bool = False) -> float | int:
     """
     EXIGÊNCIA DO CÓDIGO N.º 1 - input para entrada de dados numéricos.
     :param descricao: Descrição da entrada de dados.
@@ -22,7 +22,7 @@ def entrada_numerica(descricao: str, retorna_inteiro: bool = False) -> float | i
         return _entrada if not retorna_inteiro else int(_entrada)
 
 
-def realizar_calculo(valor_do_pedido: float, quantidade_parcelas: int) -> list:
+def processar_pedido(valor_do_pedido: float, quantidade_parcelas: int) -> list:
     """
     EXIGÊNCIA DO CÓDIGO N.º 2 - variáveis valor_do_pedido e quantidade_parcelas como parâmetros de função.
     EXIGÊNCIA DO CÓDIGO N.º 3 e 5 - Juros e estrutura if, elif e else.
@@ -50,11 +50,11 @@ def realizar_calculo(valor_do_pedido: float, quantidade_parcelas: int) -> list:
 
 
 def executar() -> None:
-    print('Bem-Vindo a loja de Artur dos Santos Shon')
+    print('Bem-Vindo a question_01 de Artur dos Santos Shon')
     mensagem = 'O valor das parcelas é de: {}\nO valor Total Parcelado é de: {}'.format(
-        *realizar_calculo(
-            valor_do_pedido=entrada_numerica('Entre com o valor do pedido: '),
-            quantidade_parcelas=entrada_numerica('Entre com a quantidade do produto: ', True)
+        *processar_pedido(
+            valor_do_pedido=input_loja('Entre com o valor do pedido: '),
+            quantidade_parcelas=input_loja('Entre com a quantidade de parcelas: ', True)
         )
     )
     print(mensagem)

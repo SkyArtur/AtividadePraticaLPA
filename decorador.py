@@ -1,7 +1,7 @@
 from typing import Any
 
 
-def entrada(funcao):
+def decorador_input(funcao):
     def __envolucro(rotulo: str = '\n=> ', chamadas: int = 5, *args, **kwargs) -> Any:
         """
         Função de decoradora para 'inputs'.
