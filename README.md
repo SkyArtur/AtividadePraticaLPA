@@ -458,9 +458,6 @@ def cadastrar_funcionario(_id: int) -> dict:
         setor=input_padrao('Por favor, entre com o setor do funcionário: '),
         salario=input_numerico('Por favor, entre com o salário do funcionário: ', minn=0, maxx=100000, decimal=True)
     )
-    # Ciente que terei nota descontada por não utilizar o método .copy(), mas, não ficou claro
-    # sobre qual estrutura ele deveria ser chamado, se sobre o objeto list ou dict. De toda a
-    # forma, ele seria desnecessário aqui.
     lista_funcionarios.append(funcionario)
     return funcionario
 
