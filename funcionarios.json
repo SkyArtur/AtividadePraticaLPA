@@ -3,24 +3,36 @@
         "id": 3829066,
         "nome": "aline",
         "setor": "vendas",
-        "salario": 1000
+        "salario": 2500
     },
     {
         "id": 3829067,
         "nome": "sandra",
         "setor": "vendas",
-        "salario": 1000
+        "salario": 2500
     },
     {
         "id": 3829068,
         "nome": "artur",
         "setor": "gerencia",
-        "salario": 1000
+        "salario": 4000
     },
     {
         "id": 3829069,
         "nome": "maria",
         "setor": "serviços",
-        "salario": 1000
+        "salario": 2000
+    },
+    {
+        "id": 38290670,
+        "nome": "julia",
+        "setor": "serviços",
+        "salario": 2000
+    },
+    {
+        "id": 3829071,
+        "nome": "edson",
+        "setor": "serviços",
+        "salario": 2000
     }
 ]
