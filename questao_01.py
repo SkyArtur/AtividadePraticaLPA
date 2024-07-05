@@ -50,7 +50,7 @@ def processar_pedido(valor_do_pedido: float, quantidade_parcelas: int) -> list:
 
 
 def executar() -> None:
-    print('Bem-Vindo a question_01 de Artur dos Santos Shon')
+    print('Bem-Vindo a loja de Artur dos Santos Shon')
     mensagem = 'O valor das parcelas é de: {}\nO valor Total Parcelado é de: {}'.format(
         *processar_pedido(
             valor_do_pedido=input_loja('Entre com o valor do pedido: '),

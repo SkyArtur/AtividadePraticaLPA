@@ -91,7 +91,7 @@ def processar_pedido(valor_do_pedido: float, quantidade_parcelas: int) -> list:
 
 
 def executar() -> None:
-    print('Bem-Vindo a question_01 de Artur dos Santos Shon')
+    print('Bem-Vindo a loja de Artur dos Santos Shon')
     mensagem = 'O valor das parcelas é de: {}\nO valor Total Parcelado é de: {}'.format(
         *processar_pedido(
             valor_do_pedido=input_loja('Entre com o valor do pedido: '),
@@ -167,7 +167,7 @@ def cardapio() -> dict:
     preco_item_1 = [f'R$ {i:.2f}' for i in item_1['tamanhos'].values()]
     preco_item_2 = [f'R$ {i:.2f}' for i in item_2['tamanhos'].values()]
     print(
-        f'{" Bem-vindo a question_01 de Marmitas do Artur dos Santos Shon ":-^60}',
+        f'{" Bem-vindo a loja de Marmitas do Artur dos Santos Shon ":-^60}',
         f'{"Cardápio":-^60}',
         '-' * 60,
         f'{f"|{'Tamanho':^10}|{'Bife Acebolado(BA)':^20}|{'Filé de Frango(FF)':^20}|":-^60}',

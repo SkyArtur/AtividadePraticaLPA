@@ -35,7 +35,7 @@ def cardapio() -> dict:
     preco_item_1 = [f'R$ {i:.2f}' for i in item_1['tamanhos'].values()]
     preco_item_2 = [f'R$ {i:.2f}' for i in item_2['tamanhos'].values()]
     print(
-        f'{" Bem-vindo a question_01 de Marmitas do Artur dos Santos Shon ":-^60}',
+        f'{" Bem-vindo a loja de Marmitas do Artur dos Santos Shon ":-^60}',
         f'{"Cardápio":-^60}',
         '-' * 60,
         f'{f"|{'Tamanho':^10}|{'Bife Acebolado(BA)':^20}|{'Filé de Frango(FF)':^20}|":-^60}',
